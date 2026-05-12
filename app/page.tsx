@@ -643,7 +643,7 @@ function MainApp() {
 
   return (
     <>
-      <audio ref={audioRef} src="/audio/theme.mp3" loop />
+      <audio ref={audioRef} src="/audio/theme.mp3" loop autoPlay/>
       <GifStickers />
       
       <div className="monitor-wrapper">
