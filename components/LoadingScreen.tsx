@@ -41,7 +41,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
         {canStart && (
           <button className={styles.startBtn} onClick={onComplete}>
             ▶ START SYSTEM
-            <div className={styles.hint}>[AUDIO WILL ACTIVATE]</div>
+            <div className={styles.hint}>[UNSTABLE ALIEN PROTOCOL]</div>
           </button>
         )}
 

@@ -775,7 +775,7 @@ function MainApp() {
                 </div>
               )}
 
-              <div className="warning-banner">⚠ DEMO MODE - SIMULATION ACTIVE ⚠</div>
+              <div className="warning-banner">⚠ UNSTABLE ALIEN PROTOCOL - 2026 ETHEREUM ⚠</div>
             </div>
           </div>
         </div>
