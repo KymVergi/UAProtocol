@@ -5,9 +5,10 @@ import styles from './LoadingScreen.module.css'
 
 interface LoadingScreenProps {
   onComplete: () => void
+  audioRef?: React.RefObject<HTMLAudioElement> // NUEVO
 }
 
-export function LoadingScreen({ onComplete }: LoadingScreenProps) {
+export function LoadingScreen({ onComplete, audioRef }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0)
   const [canStart, setCanStart] = useState(false)
 
@@ -25,6 +26,17 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
     return () => clearInterval(interval)
   }, [])
 
+  const handleStart = () => {
+    // NUEVO: Activar audio cuando hace click
+    if (audioRef?.current) {
+      audioRef.current.volume = 0.2
+      audioRef.current.play()
+        .then(() => console.log('✓ Audio playing'))
+        .catch(e => console.error('Audio error:', e))
+    }
+    onComplete()
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -39,9 +51,9 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
         </div>
 
         {canStart && (
-          <button className={styles.startBtn} onClick={onComplete}>
+          <button className={styles.startBtn} onClick={handleStart}>
             ▶ START SYSTEM
-            <div className={styles.hint}>[UNSTABLE ALIEN PROTOCOL]</div>
+            <div className={styles.hint}>[AUDIO WILL ACTIVATE]</div>
           </button>
         )}
 
